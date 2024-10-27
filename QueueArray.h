@@ -49,7 +49,7 @@ public:
             return;
         }
 
-        for(int i=start;i<capacity;i++) newArray[i-start]=array[i];
+        for(int i=(start%capacity);i<capacity;i++) newArray[i-start]=array[i];
 
         for(int i=0;i<=(end%capacity);i++) newArray[capacity-start+i] = array[i];
 
@@ -73,11 +73,11 @@ public:
     {  
        if(start==-1 && end==-1){
           array[0]=x;
-          start=end=0;
+          start=end=0;  
           return;
         }
 
-        if((end-start+1)==capacity) this->resize(2*capacity);
+       if((end-start+1)==capacity) this->resize(2*capacity);
 
        end++;
        array[end%capacity] = x; 
